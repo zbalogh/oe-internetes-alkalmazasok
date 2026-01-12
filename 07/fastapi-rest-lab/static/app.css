@@ -1,0 +1,26 @@
+body { font-family: Arial, sans-serif; margin: 20px; max-width: 900px; }
+.card { margin-bottom: 1rem; background:#f9f9f9; padding:16px; border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,0.08); }
+.form-row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:10px; }
+label { min-width:60px; font-weight:600; }
+input { padding:6px 8px; min-width:240px; }
+.error { color: #b00020; font-size:0.9rem; }
+button { cursor: pointer; padding:6px 10px; }
+
+.msg { margin:8px 0; font-size:0.95rem; }
+.info { color: #155724; background:#d4edda; padding:6px 8px; border-radius:4px; }
+.warn { color:#856404; background:#fff3cd; padding:6px 8px; border-radius:4px; }
+
+.hidden { display:none; }
+.section-title { margin-top:0; }
+
+table { width:100%; border-collapse:collapse; }
+thead { background:#f0f4f8; }
+th, td { padding:10px; text-align:left; border-bottom:1px solid #e3e8ef; }
+th.actions, td.actions { text-align:right; }
+.actions { display:flex; justify-content:flex-end; gap:8px; }
+.actions button { min-width:90px; }
+.actions button + button { margin-left:0; }
+.table-wrapper { overflow-x:auto; }
+
+.user-actions button { margin-left:8px; }
+.empty-row td { text-align:center; color:#6c757d; font-style:italic; }

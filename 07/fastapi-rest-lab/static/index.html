@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Users demo</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+
+<body>
+  <h1>Users REST API demo</h1>
+
+  <section id="createSection" class="card">
+    <h2 class="section-title">Create user</h2>
+    <form id="createForm">
+      <div class="form-row">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="off" />
+        <span class="error" id="err-name"></span>
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="off" />
+        <span class="error" id="err-email"></span>
+      </div>
+      <div class="form-row">
+        <button type="submit">Create user</button>
+        <button type="button" id="clearBtn">Clear</button>
+      </div>
+      <div class="error" id="err-global"></div>
+    </form>
+  </section>
+
+  <section id="editSection" class="card hidden">
+    <h2 class="section-title" id="editTitle">Edit user</h2>
+    <form id="editForm">
+      <div class="form-row">
+        <label for="edit-name">Name</label>
+        <input id="edit-name" name="edit-name" type="text" autocomplete="off" />
+        <span class="error" id="edit-err-name"></span>
+      </div>
+      <div class="form-row">
+        <label for="edit-email">Email</label>
+        <input id="edit-email" name="edit-email" type="email" autocomplete="off" />
+        <span class="error" id="edit-err-email"></span>
+      </div>
+      <div class="form-row">
+        <button type="submit">Submit</button>
+        <button type="button" id="cancelEditBtn">Cancel</button>
+      </div>
+      <div class="error" id="edit-err-global"></div>
+    </form>
+  </section>
+
+  <div style="margin-bottom:10px">
+    <button id="refreshBtn">Refresh list</button>
+    <span id="status" class="msg hidden"></span>
+  </div>
+
+  <section class="card">
+    <h2 class="section-title">All users</h2>
+    <div class="table-wrapper">
+      <table aria-label="Users">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col" class="actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="usersBody">
+          <tr class="empty-row">
+            <td colspan="4">Loading users…</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
