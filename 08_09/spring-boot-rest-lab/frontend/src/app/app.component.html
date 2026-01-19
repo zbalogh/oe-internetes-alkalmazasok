@@ -1,0 +1,29 @@
+<!-- Application main container -->
+<div class="app-container">
+
+  <!-- Navigation header -->
+  <header class="app-header">
+    <div class="header-content">
+      <!-- Application title -->
+      <h1 class="app-title">{{ title }}</h1>
+      
+      <!-- Navigation menu -->
+      <nav class="app-nav">
+        <a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a>
+        <a routerLink="/users" routerLinkActive="active" class="nav-link">Users</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content area where routed components are displayed -->
+  <main class="app-content">
+    <!-- Router outlet - displays the active component based on the route -->
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Application footer -->
+  <footer class="app-footer">
+    <p>&copy; 2026 User Management System - Spring Boot & Angular Demo</p>
+  </footer>
+
+</div>

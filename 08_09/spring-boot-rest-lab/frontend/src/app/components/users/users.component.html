@@ -1,0 +1,69 @@
+<!-- Users page container -->
+<div class="users-container">
+  <!-- Page heading with add button -->
+  <div class="header">
+    <h1>User Management</h1>
+    <button class="btn btn-primary" (click)="onAddUser()">Add New User</button>
+  </div>
+
+  <!-- Success message display -->
+  <div class="alert alert-success" *ngIf="successMessage">
+    {{ successMessage }}
+    <button class="close-btn" (click)="clearSuccess()">×</button>
+  </div>
+
+  <!-- Error message display -->
+  <div class="alert alert-error" *ngIf="errorMessage">
+    {{ errorMessage }}
+    <button class="close-btn" (click)="clearError()">×</button>
+  </div>
+
+  <!-- Loading spinner -->
+  <div class="loading" *ngIf="loading">
+    <p>Loading users...</p>
+  </div>
+
+  <!-- Users table -->
+  <div class="table-container" *ngIf="!loading">
+    <!-- Display message if no users exist -->
+    <div class="no-users" *ngIf="users.length === 0">
+      <p>No users found. Click "Add New User" to create one.</p>
+    </div>
+
+    <!-- Display table if users exist -->
+    <table class="users-table" *ngIf="users.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iterate through users and display each in a row -->
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td class="actions">
+            <!-- Edit button -->
+            <button 
+              class="btn btn-edit" 
+              (click)="onEditUser(user.id)"
+              title="Edit user">
+              Edit
+            </button>
+            <!-- Delete button -->
+            <button 
+              class="btn btn-delete" 
+              (click)="onDeleteUser(user.id, user.name)"
+              title="Delete user">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

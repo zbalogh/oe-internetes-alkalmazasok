@@ -1,0 +1,69 @@
+<!-- Edit/Create user page container -->
+<div class="edit-container">
+  <!-- Page heading - changes based on mode -->
+  <h1>{{ isEditMode ? 'Edit User' : 'Create New User' }}</h1>
+
+  <!-- Error message display -->
+  <div class="alert alert-error" *ngIf="errorMessage">
+    {{ errorMessage }}
+    <button class="close-btn" (click)="clearError()">×</button>
+  </div>
+
+  <!-- Loading spinner -->
+  <div class="loading" *ngIf="loading">
+    <p>{{ isEditMode ? 'Loading user data...' : 'Saving...' }}</p>
+  </div>
+
+  <!-- User form -->
+  <form class="user-form" (ngSubmit)="onSubmit()" *ngIf="!loading">
+    <!-- Name field -->
+    <div class="form-group">
+      <label for="name">Name <span class="required">*</span></label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="user.name"
+        class="form-control"
+        [class.error]="validationErrors['name']"
+        placeholder="Enter user name"
+        required
+      />
+      <!-- Name validation error -->
+      <div class="error-message" *ngIf="validationErrors['name']">
+        {{ validationErrors['name'] }}
+      </div>
+    </div>
+
+    <!-- Email field -->
+    <div class="form-group">
+      <label for="email">Email <span class="required">*</span></label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="user.email"
+        class="form-control"
+        [class.error]="validationErrors['email']"
+        placeholder="Enter email address"
+        required
+      />
+      <!-- Email validation error -->
+      <div class="error-message" *ngIf="validationErrors['email']">
+        {{ validationErrors['email'] }}
+      </div>
+    </div>
+
+    <!-- Form buttons -->
+    <div class="form-actions">
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary">
+        {{ isEditMode ? 'Update User' : 'Create User' }}
+      </button>
+      <!-- Cancel button -->
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
