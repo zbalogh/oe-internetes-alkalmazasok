@@ -1,0 +1,9 @@
+.info { padding: 10px; background: #f3f3f3; margin-top: 10px; }
+.error { padding: 10px; border: 1px solid #c00; margin-top: 10px; }
+
+.card {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}

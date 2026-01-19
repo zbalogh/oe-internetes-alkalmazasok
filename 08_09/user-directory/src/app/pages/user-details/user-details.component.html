@@ -1,0 +1,13 @@
+<a routerLink="/users">← Back to list</a>
+
+<div *ngIf="isLoading" class="info">Loading...</div>
+
+<div *ngIf="errorMessage" class="error">
+  <p><b>Hiba:</b> {{ errorMessage }}</p>
+</div>
+
+<div *ngIf="!isLoading && !errorMessage && user" class="card">
+  <h2>{{ user.name }}</h2>
+  <p><b>Email:</b> {{ user.email }}</p>
+  <p><b>Phone:</b> {{ user.phone }}</p>
+</div>

@@ -1,0 +1,23 @@
+<h1>User Directory</h1>
+
+<label class="label">
+  Keresés:
+  <input [(ngModel)]="searchTerm" placeholder="név vagy email..." />
+</label>
+
+<p class="muted">Keresés értéke: <b>{{ searchTerm }}</b></p>
+
+<div *ngIf="isLoading" class="info">Loading...</div>
+
+<div *ngIf="errorMessage" class="error">
+  <p><b>Hiba:</b> {{ errorMessage }}</p>
+  <button (click)="loadUsers()">Retry</button>
+</div>
+
+<ul *ngIf="!isLoading && !errorMessage" class="list">
+  <li *ngFor="let user of filteredUsers">
+    <a [routerLink]="['/users', user.id]">
+      {{ user.name }} <span class="muted">({{ user.email }})</span>
+    </a>
+  </li>
+</ul>

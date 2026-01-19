@@ -1,0 +1,9 @@
+.label { display: block; margin: 12px 0; }
+input { padding: 6px; min-width: 260px; }
+
+.list { padding-left: 18px; }
+.muted { color: #666; }
+
+.info { padding: 10px; background: #f3f3f3; }
+.error { padding: 10px; border: 1px solid #c00; }
+button { padding: 6px 10px; }

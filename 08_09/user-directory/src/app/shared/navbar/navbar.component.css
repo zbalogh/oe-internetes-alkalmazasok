@@ -1,0 +1,9 @@
+.nav {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+a { text-decoration: none; }
+.active { font-weight: 700; }
