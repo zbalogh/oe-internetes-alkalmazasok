@@ -50,11 +50,15 @@ src/main/resources/
 ### Használat:
 Nyisd meg a böngészőt: `http://localhost:8080`
 
-- Automatikusan átirányít a `/users` oldalra
+- Automatikusan átirányít a `/login` oldalra
+- Jelentkezz be az `admin` felhasználóval, jelszó: `admin123`
+- A bejelentkezés után átirányít a `/users` oldalra
 - Lista nézetben láthatóak a felhasználók
 - "Add New User" gomb - új felhasználó létrehozása
 - "Edit" gomb - felhasználó szerkesztése
 - "Delete" gomb - felhasználó törlése (megerősítéssel)
+- "Refresh List" gomb - lista frissítése
+- "Logout" gomb - kijelentkezés
 
 
 ## Tanulási célok - mit demonstrál ez az alkalmazás?
@@ -73,7 +77,13 @@ Nyisd meg a böngészőt: `http://localhost:8080`
    - `RedirectAttributes` - flash üzenetek
 
 
-3. **Thymeleaf Template Engine**
+3. **Spring Security Alapok**
+   - Form alapú autentikáció
+   - In-memory user store
+   - Login és logout kezelése
+
+
+4. **Thymeleaf Template Engine**
    - Szerver oldali HTML renderelés
    - Thymeleaf attribútumok (`th:*`)
    - Feltételes renderelés (`th:if`)
@@ -82,7 +92,7 @@ Nyisd meg a böngészőt: `http://localhost:8080`
    - URL generálás (`@{...}`)
 
 
-4. **CRUD műveletek**
+5. **CRUD műveletek**
    - Create (POST /users)
    - Read (GET /users, GET /users/edit/{id})
    - Update (POST /users/update/{id})
