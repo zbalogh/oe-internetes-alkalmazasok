@@ -1,0 +1,57 @@
+/* Styles specific to user-form page */
+
+/* Container override for form page */
+.container {
+    max-width: 600px;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 500;
+}
+
+.required {
+    color: red;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+input[type="text"]:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+/* Form actions */
+.form-actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.form-actions .btn {
+    padding: 12px 24px;
+    margin-right: 10px;
+}
+
