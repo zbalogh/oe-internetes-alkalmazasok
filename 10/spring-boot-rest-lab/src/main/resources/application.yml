@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+# Swagger/OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+# JWT Configuration
+jwt:
+  secret: mySecretKeyForJWTTokenGenerationAndValidationDemo2026
+  expiration: 86400000  # 24 hours in milliseconds
