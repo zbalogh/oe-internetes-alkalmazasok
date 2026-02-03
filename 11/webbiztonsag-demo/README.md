@@ -16,7 +16,7 @@
 
 ## Indítás (Linux/macOS)
 1. Nyiss egy Bash shell-t.
-2 Futtasd:
+2. Futtasd:
   ```
   python server.py
   ```
