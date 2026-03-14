@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>TLS Kulcscsere Összefoglaló</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; color: #333; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; }
+        h2 { color: #2980b9; margin-top: 30px; }
+        code { background: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-weight: bold; }
+        .box { background: #e8f4fd; border-left: 5px solid #3498db; padding: 15px; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>TLS Kulcscsere: RSA vs. ECDHE</h1>
+    
+    <h2>1. RSA Alapú Kulcscsere (A klasszikus mód)</h2>
+    <p>Lényege: A kliens titkosítja a főtitkot a szerver nyilvános kulcsával.</p>
+    <ul>
+        <li>A szerver elküldi az <b>RSA nyilvános kulcsát</b>.</li>
+        <li>A kliens generál egy <b>Pre-master Secret</b>-et.</li>
+        <li>A kliens ezt titkosítja a szerver kulcsával és átküldi.</li>
+        <li>A szerver a <b>privát kulcsával</b> bontja ki.</li>
+    </ul>
+
+    <h2>2. ECDHE (A modern, biztonságos mód)</h2>
+    <p>Lényege: A felek nem küldik el a titkot, hanem közösen kiszámolják (Diffie-Hellman).</p>
+    <div class="box">
+        <strong>A matematikai képlet:</strong><br>
+        Alice (Kliens): <code>Q_A = d_A * G</code> (Privát kulcs * Generátor pont)<br>
+        Bob (Szerver): <code>Q_B = d_B * G</code><br>
+        <strong>Közös titok:</strong> <code>S = d_A * Q_B = d_B * Q_A</code>
+    </div>
+
+    <h2>3. A Session Key (Munkamenet kulcs) felépítése</h2>
+    <p>Bármelyik módszert is használjuk, a végső szimmetrikus kulcs (AES) három összetevőből áll:</p>
+    <ol>
+        <li><strong>Client Random:</strong> Kliens által küldött véletlen szám.</li>
+        <li><strong>Server Random:</strong> Szerver által küldött véletlen szám.</li>
+        <li><strong>Pre-master Secret:</strong> Az RSA-val átküldött vagy ECDHE-vel kiszámolt titok.</li>
+    </ol>
+
+    <table>
+        <tr>
+            <th>Jellemző</th>
+            <th>RSA</th>
+            <th>ECDHE</th>
+        </tr>
+        <tr>
+            <td>Titok útja</td>
+            <td>Áthalad a hálózaton (titkosítva)</td>
+            <td>Soha nem hagyja el a gépeket</td>
+        </tr>
+        <tr>
+            <td>Forward Secrecy</td>
+            <td>Nincs (visszamenőleg feltörhető)</td>
+            <td>Van (minden munkamenet egyedi)</td>
+        </tr>
+    </table>
+</body>
+</html>
