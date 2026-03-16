@@ -22,7 +22,7 @@ A projekt egy **klasszikus MVC (Model-View-Controller)** architektúrát követ:
 
 ```
 src/main/java/hu/uni/mvclab/
-├── SpringBootMvcLabApplication.java  (Főprogram)
+├── MvcDemoLabApplication.java  (Főprogram)
 ├── controller/
 │   ├── HomeController.java           (Root URL átirányítása)
 │   └── UserController.java           (MVC Controller - CRUD műveletek)
