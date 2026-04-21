@@ -26,6 +26,8 @@ src/main/java/hu/uni/mvclab/
 ├── controller/
 │   ├── HomeController.java           (Root URL átirányítása)
 │   └── UserController.java           (MVC Controller - CRUD műveletek)
+├── config
+│   └── SecurityConfig.java           (Security Configuration)
 ├── dto/
 │   └── User.java                     (Data Transfer Object - Model)
 └── service/
